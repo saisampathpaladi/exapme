@@ -1,0 +1,14 @@
+import math
+tall = input("How tall are you sir ? (in ft) ")
+tall= float(tall)
+print("I have rounded you height to be "+str(round(tall)))
+
+
+output
+example 1
+How tall are you sir ? (in ft) 5.7
+I have rounded you height to be 6
+
+example 2
+How tall are you sir ? (in ft) 5.3
+I have rounded you height to be 5

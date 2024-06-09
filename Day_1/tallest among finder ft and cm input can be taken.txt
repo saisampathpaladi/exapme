@@ -1,0 +1,86 @@
+import math
+
+print("Tallest Guy Finder")
+
+
+def convert_to_cm(feet, inches):
+    return feet * 30.48 + inches * 2.54
+
+
+def convert_to_feet(cm):
+    total_feet = cm / 30.48
+    feet = int(total_feet)
+    inches = (total_feet - feet) * 12
+    return feet, inches
+
+
+def main():
+    people = []
+
+    while True:
+        num_people = int(input("Enter the number of people (at least 3): "))
+        if num_people >= 3:
+            break
+        else:
+            print("Please enter at least 3 people.")
+
+    for _ in range(num_people):
+        name = input("Enter the name: ")
+        while True:
+            height = input(f"Enter the height of {name} (e.g., '5.7 ft' or '175 cm'): ").strip().lower()
+
+            if re.match(r'^\d+(\.\d+)?\s*cm$', height):
+                total_cm = float(height.split('cm')[0].strip())
+                break
+            elif re.match(r'^\d+(\.\d+)?\s*ft$', height):
+                height_parts = height.split('ft')[0].strip().split('.')
+                feet = int(height_parts[0])
+                inches = float("0." + height_parts[1]) * 12 if len(height_parts) > 1 else 0
+                total_cm = convert_to_cm(feet, inches)
+                break
+            else:
+                print("Invalid height format. Please use 'ft' or 'cm'.")
+
+        people.append((name, total_cm))
+
+    people.sort(key=lambda x: x[1])
+
+    shortest_person = people[0]
+    tallest_person = people[-1]
+
+    shortest_name, shortest_cm = shortest_person
+    tallest_name, tallest_cm = tallest_person
+
+    shortest_feet, shortest_inches = convert_to_feet(shortest_cm)
+    tallest_feet, tallest_inches = convert_to_feet(tallest_cm)
+
+    print(
+        f"The shortest person is {shortest_name} with height {shortest_feet} ft {shortest_inches:.2f} inches ({shortest_cm:.2f} cm).")
+    print(
+        f"The tallest person is {tallest_name} with height {tallest_feet} ft {tallest_inches:.2f} inches ({tallest_cm:.2f} cm).")
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+output
+==============================================================================
+Tallest Guy Finder
+Enter the number of people (at least 3): 3
+Enter the name: h
+Enter the height of h (e.g., '5.7 ft' or '175 cm'): 200cm
+Enter the name: d
+Enter the height of d (e.g., '5.7 ft' or '175 cm'): 5.6 ft
+Enter the name: ss
+Enter the height of ss (e.g., '5.7 ft' or '175 cm'): 5 ft
+The shortest person is ss with height 5 ft 0.00 inches (152.40 cm).
+The tallest person is h with height 6 ft 6.74 inches (200.00 cm).
+
+
+
+
+
+

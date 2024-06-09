@@ -1,0 +1,12 @@
+name = input("Hi whats your name ? " )
+age = input("How old are you good sir ? ")
+tall =float(input("how tall are you ? "))
+age=int(age)
+print("good morning " +name+ " oh you are " +str(age)+ " and you are " +str(tall) +" ft")
+
+output
+
+Hi whats your name ? sam
+How old are you good sir ? 32
+how tall are you ? 5.6
+good morning sam oh you are 32 and you are 5.6 ft

@@ -1,0 +1,19 @@
+    name = "sampath"
+    print("hello "+name)
+    print(type(name))
+    age = 25
+    age +=  1
+    print("your age is : "+str(age))
+    height = 5.7
+    print(type(height))
+    print("your height is "+ str(height)+"ft")
+  name = "length of sting"
+  print(len(name))
+  print(name.find("o"))
+  print(name.capitalize())
+  print(name.upper())
+  print(name.lower())
+  print(name.isdigit())
+  print(name.isalpha())
+  print(name.count("n"))
+  print(name.replace("st","str") +  str(len(name)))
